@@ -1,6 +1,5 @@
 #Problema del viajante
 import os
-import time
 from colorama import Fore, Style, init
 from clases import pais
 
@@ -36,7 +35,6 @@ def ingresar_capital(pais,opcionMenu):
             os.system('cls')
             break
     pais.calcularDistanciaMinima(opcion-1,opcionMenu)
-
 
 #programa principal
 while(True):

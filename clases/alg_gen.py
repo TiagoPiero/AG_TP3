@@ -56,7 +56,7 @@ class AlgoritmoGenetico:
     def crossover(self, padre1, padre2):
         if random.random() > self.probabilidadCrossover:  #No hay crossover
             print("no hay crossover")
-            return padre1.copy()
+            return padre1.copy(),padre2.copy()
         
         def cyclic_crossover(p1, p2): 
             n = len(p1)
@@ -97,14 +97,17 @@ class AlgoritmoGenetico:
             return hijo
         
         hijo1 = cyclic_crossover(padre1, padre2)
-        return hijo1
+        hijo2 = cyclic_crossover(padre2, padre1)
+        return hijo1,hijo2
 
     def mutacion(self, individuo):
         if random.random() < self.probabilidadMutacion:
+            print("Hijo antes de mutar: ",individuo)
             i, j = random.sample(range(len(individuo)), 2) #seleccion de dos índices aleatorios distintos del individuo
             individuo[i], individuo[j] = individuo[j], individuo[i] # intercambio de los elementos en las posiciones i y j.
-        
-        print("no hay mutacion")
+
+        else:
+            print("no hay mutacion")
         return individuo   
     
     def verificar_validez_individuo(self,individuo):
@@ -120,9 +123,6 @@ class AlgoritmoGenetico:
             print("\n Individuos ordenados: ", individuos_ordenados)
             cantidad_elites = int(self.tamanoPoblacion * self.porcentajeElitismo)
             print("Cantidad elites: ",cantidad_elites)
-            elites = [individuo for individuo, fitness in individuos_ordenados[:cantidad_elites]]
-            # print("Elites: ",elites)
-            
             # Crear nueva población, comenzando con los individuos elites
             nueva_poblacion = [ind[0].copy() for ind in individuos_ordenados[:cantidad_elites]]
         
@@ -139,18 +139,24 @@ class AlgoritmoGenetico:
             print("\nRULETA")
             print("Padre 1: ",padre1," - Padre 2: ",padre2)
 
-            hijo = self.crossover(padre1, padre2)
+            hijo1,hijo2 = self.crossover(padre1, padre2)
             print("--Crossover--")
-            print("Hijo crossover: ",hijo)
+            print("Hijo 1 crossover: ",hijo1)
+            print("Hijo 2 crossover: ",hijo2)
             
-            hijo = self.mutacion(hijo)
+            hijo1 = self.mutacion(hijo1)
+            hijo2 = self.mutacion(hijo2)
             print("--Mutacion--")
-            print("Hijo mutado: ",hijo)
+            print("Hijo 1 mutado: ",hijo1)
+            print("Hijo 2 mutado: ",hijo2)
             
-            print("\nHIJO: ",hijo)
+            print("\nHIJO 1: ",hijo1)
+            print("\nHIJO 2: ",hijo2)
             
-            if self.verificar_validez_individuo(hijo):
-                nueva_poblacion.append(hijo)
+            if self.verificar_validez_individuo(hijo1):
+                nueva_poblacion.append(hijo1)
+            if self.verificar_validez_individuo(hijo2):
+                nueva_poblacion.append(hijo2)
                 
         print("------------------------------------------")
         print("\n\nNueva poblacion post reproduccion: ")
