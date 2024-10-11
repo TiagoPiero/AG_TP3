@@ -14,8 +14,8 @@ class AlgoritmoGenetico:
         self.porcentajeElitismo = 0.20
         
     def crear_individuo(self):
-        # Crea una permutación de números del 1 al 24
-        cromosoma = list(range(24)) #de 0 a 23
+        # Crea una permutación de números del 0 al 23
+        cromosoma = list(range(24)) 
         random.shuffle(cromosoma)
         return cromosoma
         
