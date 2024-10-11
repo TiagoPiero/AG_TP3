@@ -91,8 +91,6 @@ class pais:
         return self.distancias.iloc[indiceCiudad]
 
     def calcularDistanciaMinima(self, indexCiudad,opcionMenu):
-        inicio = time.time()
-        
         sumaKilometros = 0
         indicePrimeraCiudad = indexCiudad
         indiceUltimaCiudad = -1
@@ -135,7 +133,6 @@ class pais:
         sumaKilometros = sumaKilometros + distanciaRetorno
         
         if(opcionMenu == 1):
-            fin = time.time()
             
             print("\n"+ Style.BRIGHT + Fore.YELLOW + "——" * 40 + Style.RESET_ALL)
             print("Origen: ",secuencia_viaje[0])
@@ -143,7 +140,6 @@ class pais:
             self.printSecuencia(secuencia_viaje)
             print("\nDistancia total recorrida: ",sumaKilometros,"kms")
             print(Style.BRIGHT + Fore.YELLOW + "——" * 40 + Style.RESET_ALL)
-            print(f"Tiempo de ejecucion: {(fin-inicio)*(10**3):.2f} ms\n")
             
             self.generarMapa(secuencia_viaje,opcionMenu)
             
