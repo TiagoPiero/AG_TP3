@@ -61,16 +61,19 @@ class pais:
         plt.title('Convergencia del Algoritmo Genético')
         plt.xlabel('Generación')
         plt.grid(True)
+        
         if tipo_grafica == "fitness":
             plt.ylabel('Fitness (1/distancia)')
             if elitismo:
                 plt.savefig('grafico_fitness_elitismo.png')
-            plt.savefig('grafico_fitness.png')
+            else:
+                plt.savefig('grafico_fitness.png')
         elif tipo_grafica == "distancias":
             plt.ylabel('Distancia (km)') 
             if elitismo:
                 plt.savefig('grafico_distancias_elitismo.png')
-            plt.savefig('grafico_distancias.png')
+            else:
+                plt.savefig('grafico_distancias.png')
         plt.close()
            
     def printSecuencia(self,secuencia):
@@ -191,9 +194,7 @@ class pais:
         self.generarMapa(resultado['mejor_ruta'], 3)
         
         # Generar los gráficos
-        if usar_elitismo:
-            self.generarGrafico(resultado['historial_distancias'], "distancias",usar_elitismo)
-        else:
-            self.generarGrafico(resultado['historial_fitness'], "fitness",usar_elitismo)
+        self.generarGrafico(resultado['historial_distancias'], "distancias",usar_elitismo)
+        self.generarGrafico(resultado['historial_fitness'], "fitness",usar_elitismo)
 
         #TODO PONER TIEMPOS DE EJECUCION.

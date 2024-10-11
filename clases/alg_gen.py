@@ -6,7 +6,7 @@ class AlgoritmoGenetico:
         self.distancias = distancias
         self.ciudades = ciudades
         
-        # Parámetros por defecto
+        #Parametros
         self.tamanoPoblacion = 50
         self.cantidadCorridas = 200
         self.probabilidadMutacion = 0.05
