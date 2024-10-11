@@ -12,8 +12,8 @@ def menu():
         print(Fore.RED + "MENU PRINCIPAL".center(40) + Style.RESET_ALL)
         print(Fore.RED + "——" * 20 + Style.RESET_ALL)
         print("1. Buscar ruta mínima desde origen")
-        print("2. Buscar recorrido minimo")
-        print("3. Buscar recorrido minimo con geneticos")
+        print("2. Buscar recorrido minimo con heuristico")
+        print("3. Buscar recorrido minimo con genetico")
         print("4. Salir")
         option = int(input("Ingrese una opcion: "))
         if(validar_opcion(option)):
