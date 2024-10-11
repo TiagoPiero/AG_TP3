@@ -191,7 +191,9 @@ class pais:
         self.generarMapa(resultado['mejor_ruta'], 3)
         
         # Generar los gráficos
-        self.generarGrafico(resultado['historial_distancias'], "distancias",usar_elitismo)
-        self.generarGrafico(resultado['historial_fitness'], "fitness",usar_elitismo)
+        if usar_elitismo:
+            self.generarGrafico(resultado['historial_distancias'], "distancias",usar_elitismo)
+        else:
+            self.generarGrafico(resultado['historial_fitness'], "fitness",usar_elitismo)
 
         #TODO PONER TIEMPOS DE EJECUCION.
