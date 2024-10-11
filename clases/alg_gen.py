@@ -38,8 +38,6 @@ class AlgoritmoGenetico:
         fitness = 1 / distancia_total
         
         print("Individuo:", individuo," - Distancia total: ", distancia_total," - Fitness: ",fitness)
-        # print("Distancia total: ", distancia_total)
-        # print("Fitness: ",fitness)  # A mayor fitness, mejor. (menor distancia)
         
         return fitness
         

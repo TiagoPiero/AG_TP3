@@ -127,7 +127,6 @@ class pais:
             # print("distancias desde la ciudad: ",self.ciudades[index], "son: ",ciudad_distancias)
             indiceUltimaCiudad = index
         
-        #fin del blucle for
         secuencia_viaje.append(secuencia_viaje[0])
         #calcular distancia de retorno
         ciudad_distancias = self.calculaDistanciasDadaCiudad(indicePrimeraCiudad)
@@ -196,5 +195,3 @@ class pais:
         # Generar los gráficos
         self.generarGrafico(resultado['historial_distancias'], "distancias",usar_elitismo)
         self.generarGrafico(resultado['historial_fitness'], "fitness",usar_elitismo)
-
-        #TODO PONER TIEMPOS DE EJECUCION.
