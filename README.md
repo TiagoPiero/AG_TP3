@@ -1,3 +1,8 @@
+
+## Integrantes
+-  Mauricio Bochatay
+-  Tiago Pieroni
+
 # El problema del Viajante
 
 El problema del viajante (también conocido como problema del viajante de comercio o por sus siglas en inglés: TSP (Traveling Salesman Problem), es uno de los problemas más famosos (y quizás el mejor estudiado) en el campo de la optimización combinatoria computacional.
