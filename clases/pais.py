@@ -76,13 +76,16 @@ class pais:
                 plt.savefig('grafico_distancias.png')
         plt.close()
            
-    def printSecuencia(self,secuencia):
-            for i, ciudad in enumerate(secuencia):
-                if i == len(secuencia) - 1:
-                    print(ciudad)
-                else:
-                    print(ciudad, "→", end=" ")
-    
+    def printSecuencia(self,secuencia):    #codigo comentado fue hecho para obtener la secuencia en numeros para modelo hibrido
+        # individuoNumeros=[]
+        for i, ciudad in enumerate(secuencia):
+            # ciudad_index = list(self.ciudades).index(ciudad)
+            # individuoNumeros.append(ciudad_index)
+            if i == len(secuencia) - 1:
+                print(ciudad)
+            else:
+                print(ciudad," →", end=" ")
+        # return individuoNumeros
     def mostrarCiudades(self):
         for i in self.ciudades:
             print(i)

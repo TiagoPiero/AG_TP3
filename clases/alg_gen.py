@@ -8,7 +8,7 @@ class AlgoritmoGenetico:
         
         #Parametros
         self.tamanoPoblacion = 50
-        self.cantidadCorridas = 200
+        self.cantidadCorridas = 300
         self.probabilidadMutacion = 0.05
         self.probabilidadCrossover = 0.75
         self.porcentajeElitismo = 0.20
@@ -20,8 +20,17 @@ class AlgoritmoGenetico:
         return cromosoma
         
     def crear_poblacion_inicial(self):
-        return [self.crear_individuo() for _ in range(self.tamanoPoblacion)]
         
+        # return [self.crear_individuo() for _ in range(self.tamanoPoblacion-10)]
+        
+        #insercion de los 10 mejores obtenidos con heuristico.  Los otros 40, aleatorios.
+        poblacion = [[0, 4, 8, 19, 1, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 20, 7, 23, 10, 12, 22],[1, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 8, 19, 0, 4, 20, 7, 23, 10, 12, 22],[4, 0, 8, 19, 1, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 20, 7, 23, 10, 12, 22],[7, 20, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 8, 19, 1, 0, 4, 23, 10, 12, 22],[8, 19, 1, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 0, 4, 20, 7, 23, 10, 12, 22],[10, 23, 20, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 8, 19, 1, 0, 4, 7, 12, 22],[12, 22, 10, 23, 20, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 8, 19, 1, 0, 4, 7],[18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 8, 19, 1, 20, 7, 23, 10, 12, 22, 4, 0],[19, 8, 1, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 0, 4, 20, 7, 23, 10, 12, 22],[22, 12, 10, 23, 20, 18, 6, 17, 5, 13, 21, 14, 16, 15, 11, 2, 3, 9, 8, 19, 1, 0, 4, 7]]
+        
+        for i in range(self.tamanoPoblacion - len(poblacion)):
+            poblacion.append(self.crear_individuo())
+        
+        return poblacion
+    
     def calcular_fitness(self,individuo):
         # Calcula la distancia total del recorrido
         distancia_total = 0
